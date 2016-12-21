@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Transaction Received</h1>
+    <p>
+    	We have received transaction id <a href="http://btc.blockr.io/tx/info/<%= @txid %>"><%= @txid %></a> in the amount of <%= @amount %>.</p>
+    	<p>We require 3 confirmations before the amount is available to trade, so your transaction should be approved in about 1/2 an hour. Thanks for the deposit!
+      </p>
+  </body>
+</html>

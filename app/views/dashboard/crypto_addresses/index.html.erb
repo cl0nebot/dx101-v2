@@ -1,0 +1,36 @@
+<div class="row">
+<h1>Crypto Currency Addresses</h1>
+<div class="row">
+ <%= render 'layouts/messages' %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>Currency</th>
+      <th>Address Type</th>
+      <th>Active?</th>
+      <th>User</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @crypto_addresses.each do |crypto_address| %>
+      <tr>
+        <td><%= crypto_address.address %></td>
+        <td><%= crypto_address.currency %></td>
+        <td><%= crypto_address.addrtype %></td>
+        <td><%= crypto_address.active %></td>
+        <td><%= crypto_address.user.id %></td>
+        <td><%= link_to 'Show', [:dashboard, crypto_address] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Crypto address', new_dashboard_crypto_address_path %>
+</div>

@@ -1,0 +1,66 @@
+<div class ="header">  
+  <div class="row">
+    <h1>Deposit</h1>
+  </div>
+</div>
+<div class="row">
+ <%= render 'layouts/messages' %>
+</div>
+<div class="row">
+  <div class="small-9 small-centered columns">
+    <%= link_to "Dashboard", dashboard_path, class: "button" %>
+    <%= link_to "Deposit", dashboard_deposit_path, class: "button" %>
+    <%= link_to "Withdraw", dashboard_withdraw_path, class: "button" %>
+    <%= link_to "Transactions", dashboard_transactions_path, class: "button" %>
+  </div>
+</div>
+
+<div class="row">
+	<div class = "panel">
+			<ul class="tabs" data-tab role="tablist">
+	  		<li class="tab-title active" role="presentational" ><a href="#depxbt" role="tab" tabindex="0" aria-selected="true" controls="depxbt">Bitcoin / Crypto</a></li>
+	  		<li class="tab-title" role="presentational" ><a href="#depwire" role="tab" tabindex="0" aria-selected="false" controls="depwire">Dollars / Fiat</a></li>	  		
+	</ul>
+	<div class="tabs-content">
+	  <section role="tabpanel" aria-hidden="false" class="content active" id="depxbt">
+
+<% if @depaddr.empty? %>
+			<ul class="pricing-table">
+  			<li class="title">No Deposit Address Created</li>
+  		</ul>
+      <p>Sorry, this should have automatically been created for you.</p>
+  		<p><%= link_to("Create a deposit address", dashboard_btcdepaddress_path, class: "button") %></p>
+<% else %>
+	    <ul class="pricing-table">
+  			<li class="title">Fund your account by sending bitcoins to the address below.</li>
+  		</ul>
+  		<div class="small-12 large-3 columns">
+	  		<div id="qr">
+	  		  <%= image_tag @qr %>  
+	  		</div>
+  		</div>
+  		<div class="small-12 large-9 columns">
+  		<table><tr><th>Address</th><th><a href="bitcoin:<%= @depaddr %>?label=Deposit-101DX"><%= @depaddr %></a></th></tr></table>
+  		<% if @playaccount == true %>
+  		<div class="alert-box success"><h4 align="center">Make your first-ever bitcoin deposit, and the Exchange will give you a <em>100% bonus</em> up to 1,000,000 bits (1 Bitcoin).</h4></div>
+  		<% end %>
+  		<em>Deposits are automatic, and credited to your account after 3 confirmations - roughly half an hour.</em>
+			</div>
+	  
+<% end %>
+</section>
+	  <section role="tabpanel" aria-hidden="true" class="content" id="depwire">
+	    <ul class="pricing-table">
+  			<li class="title">Fund your account by sending fiat currency to the address below.</li>
+  		</ul>
+			<p>Wire Transfers and other fiat currency deposit options are coming soon. Stay tuned!</p>
+	  </section>
+	</div>
+</div>
+<%# if @playaccount == true %>
+<div class="row">
+	<h3>How the 100% First Deposit Bonus works</h3>
+	<p>Once you’ve made your deposit, you earn BitPoints (BP) every time you purchase binary options with bits. In most cases, you will earn 15 BPs for every 1000 bits you purchase.</p>
+	<p>Every time you reach 1000 BPs we’ll credit your account with 1000 bits. You have 180 days after your deposit to earn all the BPs you need to release your full bonus.</p>
+</div>
+<%# end %>

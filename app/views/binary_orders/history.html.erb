@@ -1,0 +1,112 @@
+<div class ="header">  
+  <div class="row">
+    <h1>Options</h1>
+  </div>
+</div>
+<div class="row">
+ <%= render 'layouts/messages' %>
+</div>
+
+<div class="row">
+  <div class = "panel">
+    <dl class="tabs" data-tab>
+      <dd class="active"><a href="#panel1">60 Second Binary</a></dd>
+      <dd><a href="#panel2">5 Minute Binary</a></dd>
+      <dd><a href="#panel3">Classic Options</a></dd>
+    </dl>
+    <div class="tabs-content">
+      <div class="content active" id="panel1">
+      <h1>ONE!</h1>
+      <% if market_open %>
+        <%= render 'bform' %>
+      <% else %>
+      <h1>Market Closed. Make this prettier</h1>
+      <h4>Market will repoen at 16:00 UTC</h4>
+      <p>Current Time: <%= Time.now.utc %>
+      <% end %>
+      </div>
+
+      <div class="content" id="panel2">
+        <h4>Five Minute Options are next in the development queue. Please check back soon!</h4>
+      <% if market_open %>
+        <%= render 'bform' %>
+      <% else %>
+      <h1>Market Closed. Make this prettier</h1>
+      <h4>Market will repoen at 16:00 UTC</h4>
+      <p>Current Time: <%= Time.now.utc %>
+      <% end %>
+
+      </div>
+
+      <div class="content" id="panel3">
+        <h4>After 5 minute options, we will be adding Euro-style options on BTC:USD and others.</h4>
+
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="row">
+      <h1>Order History</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>Round</th>
+            <th>Order</th>
+            <th>Premium</th>
+            
+            <th>ITM?</th>
+            <th>Option Paid</th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% Array(@open_orders).each do |binary_order| %>
+            <tr>
+              <td>OPEN</td>
+              <td><%= link_to binary_order.binary_round_id, binary_round_path(binary_order.binary_round_id) %></td>
+              <td><%= binary_order.direction %></td>
+              <td><%= binary_order.premium %></td>
+              <td><%= binary_order.itm %></td>
+              <td><%= binary_order.itmpayout %></td>
+              <td><%= link_to 'Show', binary_order %></td>
+              <td><%= link_to 'Edit', edit_binary_order_path(binary_order) %></td>
+            </tr>
+          <% end %>
+          <% Array(@active_orders).each do |binary_order| %>
+            <tr>
+              <td>ACTIVE</td>
+              <td><%= link_to binary_order.binary_round_id, binary_round_path(binary_order.binary_round_id) %></td>
+              <td><%= binary_order.direction %></td>
+              <td><%= binary_order.premium %></td>
+              <td><%= binary_order.itm %></td>
+              <td><%= binary_order.itmpayout %></td>
+              <td><%= link_to 'Show', binary_order %></td>
+            </tr>
+          <% end %>
+          <% Array(@closed_orders).each do |binary_order| %>
+            <tr>
+              <td>CLOSED</td>
+              <td><%= link_to binary_order.binary_round_id, binary_round_path(binary_order.binary_round_id) %></td>
+              <td><%= binary_order.direction %></td>
+              <td><%= binary_order.premium %></td>
+              <td><%= binary_order.itm %></td>
+              <td><%= binary_order.itmpayout %></td>
+              <td><%= link_to 'Show', binary_order %></td>
+            </tr>
+          <% end %>
+
+        </tbody>
+      </table>
+
+      <br>
+
+    </div>
+  </div>
+</div>  

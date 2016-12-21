@@ -1,0 +1,60 @@
+<% if current_user && current_user.admin? %>
+<div class="row">
+  <h1>Admin View: "buy_bitcoin" Pages</h1>
+<div class="row">
+ <%= render 'layouts/messages' %>
+</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Slug</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% @buy_bitcoins.each do |buy_bitcoin| %>
+      <tr>
+        <td><%= buy_bitcoin.name %></td>
+        <td><%= buy_bitcoin.slug %></td>
+        <td><%= link_to 'Show', buy_bitcoin %></td>
+        <td><%= link_to 'Edit', edit_buy_bitcoin_path(buy_bitcoin) %></td>
+        <td><%= link_to 'Destroy', buy_bitcoin, method: :delete, data: { confirm: 'Are you REALLY sure?' } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <%= link_to 'Add New Country / Region', new_buy_bitcoin_path %>
+
+
+<% else %>
+<div class ="header">  
+  <div class="row">
+    <h1>Where can you Buy Bitcoins?</h1>
+    <h2>The Markets we Serve
+  </div>
+</div>
+<div class="row">
+  <p>101 Digital Exchange can help you in all of these countries:</p>
+  <ul class="inline-list">
+  <% @buy_bitcoins.each do |bb| %>
+    <li class="panel"> <%= link_to bb.name, bb %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+</div>
+<section>
+  <div class="row">
+    <div class="columns small-12 text-center f-28 strong">
+      <h4>Buy and sell digital currency now.</h4>
+      <%= link_to "Get Started", new_user_registration_path, class: "button alert radius" %>
+    </div>
+  </div>
+</section>
+
+<%= render 'layouts/footer' %>

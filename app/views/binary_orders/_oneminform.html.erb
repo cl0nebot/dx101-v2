@@ -1,0 +1,68 @@
+<div class="row">
+<h3>One Minute</h3>  
+Next Round: <%= @open1round.id %>
+Starts at: <%= @open1round.starttime %>
+  
+<%= form_for @binary_order do |f| %>
+  <div class="large-12 columns">
+    <div class="row collapse">
+      <div class="small-6 small-centered columns">
+        <%= hidden_field_tag :roundtype, 0 %>
+        <%= f.number_field  :premium, 
+                            class: 'text_field',
+                            step: 0.0001,
+                            in: 0.0001..@maxprem.round(8),
+                            placeholder: " (max #{@maxprem} btc)"  %>
+      </div>
+    </div>
+    <div class="small-6 small-centered columns">
+      <table>
+      <tr>
+        <td><%= f.submit 'CALL', class: "button alert" %></td>
+        <td><%= f.submit 'PUT', class: "button success" %></td>
+      </tr>
+      </table>
+    </div>
+ 
+
+
+    
+  </div>
+<% end %>
+  
+</div>
+
+<% if @active1 %>
+  <div class = "row">
+  <h4>Open Orders</h4>
+    <table>
+    <tr>
+      <th>Status</th>
+      <th>Order ID</th>
+      <th>Round</th>
+      <th>Direction</th>
+      <th>Premium</th>
+    </tr>
+    <% @open1.each do |binary_order| %>
+     <tr>
+        <td>OPEN</td>
+         <td><%= binary_order.id %></td>
+              <td><%= link_to binary_order.binary_round_id, binary_round_path(binary_order.binary_round_id) %></td>
+              <td><%= binary_order.direction %></td>
+              <td><%= binary_order.premium %></td>
+              <td><%= link_to 'Show', binary_order %></td>
+      </tr>
+    <% end %>
+    <% @active1.each do |binary_order| %>
+      <tr>
+        <td>ACTIVE</td>
+        <td><%= binary_order.id %></td>
+        <td><%= link_to binary_order.binary_round_id, binary_round_path(binary_order.binary_round_id) %></td>
+        <td><%= binary_order.direction %></td>
+        <td><%= binary_order.premium %></td>
+        <td><%= link_to 'Show', binary_order %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+<% end %>

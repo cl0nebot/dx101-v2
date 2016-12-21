@@ -1,0 +1,40 @@
+<div class="row">
+ <%= render 'layouts/messages' %>
+</div>
+<div class="row">
+<p>&nbsp;</p>
+  <div class = "small-9 small-centered columns panel">
+
+  <h2>Edit Your Login Information</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <% if !resource.errors.messages.empty? %>
+      <div data-alert class="alert-box alert"><%= devise_error_messages! %></div>
+    <% end %>
+
+    <label><%= f.label :email %>
+    <%= f.email_field :email, autofocus: true %></label>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <label>Currently waiting confirmation for: <%= resource.unconfirmed_email %></label>
+    <% end %>
+
+    <label><%= f.label :username %>
+      <%= f.text_field :username %>
+    </label>
+
+    <label>New Password <i>(leave blank if you don't want to change it)</i>
+      <%= f.password_field :password, autocomplete: "off" %></label>
+
+    <label>New Password Again
+      <%= f.password_field :password_confirmation, autocomplete: "off" %></label>
+
+    <label><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+      <%= f.password_field :current_password, autocomplete: "off" %></label>
+
+    <div><%= f.submit "Update", class: "button"%></div>
+  <% end %>
+
+  <%= link_to "Back", :back %>
+  </div>
+</div>

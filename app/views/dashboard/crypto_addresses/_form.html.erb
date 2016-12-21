@@ -1,0 +1,22 @@
+<%= form_for [:dashboard, @crypto_address] do |f| %>
+
+  <% if @crypto_address.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@crypto_address.errors.count, "error") %> prohibited this crypto_address from being saved:</h2>
+
+      <ul>
+      <% @crypto_address.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div> 
+  <div class="actions">
+    <%= f.submit 'Create', class: "button success" %>
+  </div>
+<% end %>

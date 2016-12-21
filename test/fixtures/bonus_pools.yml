@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 1
+  startday: 2014-09-18 17:47:30
+  paid_in: 9.99
+  paid_out: 9.99
+
+two:
+  type: 1
+  startday: 2014-09-18 17:47:30
+  paid_in: 9.99
+  paid_out: 9.99

@@ -1,0 +1,9 @@
+<div class="row">
+<p>&nbsp;</p>
+<% if @depaddr.empty? %>
+
+<p>We have requested a new deposit address for you.  Please <b>wait a few seconds</b>, then<br/><%= link_to("Return to the Dashboard", dashboard_deposit_path, class: "button success") %></p>
+<% else %>
+<p>You already have an address: <%= @depaddr %>. Please use this address, or contact support if you need to change it.</p>
+<% end %>
+</div>

@@ -1,0 +1,55 @@
+<div class="header">
+  <div class="row">
+    <h1>Binary Order Detail</h1>
+  </div>
+</div>
+<div class="row">
+  <p id="notice"><%= notice %></p>
+
+<table>
+  
+
+  <tr>
+    <td>Order ID:</td>
+    <td><%= @binary_order.id %>
+  </tr>
+
+
+  <tr>
+    <td>Round:</td>
+    <td><%= link_to @binary_order.binary_round_id, binary_round_path(@binary_order.binary_round_id) %>
+  </tr>
+
+  <tr>
+    <td>Direction:</td>
+    <td><%= @binary_order.direction %>
+  </tr>
+
+  <tr>
+    <td>Order:</td>
+    <td><%= @binary_order.ordertype %>
+  </tr>
+  <tr>
+    <td>Premium:</td>
+    <td><%= @binary_order.premium %>
+  </tr>
+
+<% if @binary_order.depbonus.to_f > 0%>
+  <tr>
+    <td>Added to your Deposit Bonus:</td>
+    <td><%= @binary_order.depbonus %>
+  </tr>
+<% end %>
+  <tr>
+    <td>Option Finished In-The-Money:</td>
+    <td><%= @binary_order.itm %>
+  </tr>
+<% if @binary_order.itm %>
+  <tr>
+    <td>Option Payout:</td>
+    <td><%= @binary_order.itmpayout %></td>
+  </tr>
+<% end %>
+</table>
+  <%= link_to 'Back', binary_orders_path %>
+</div>

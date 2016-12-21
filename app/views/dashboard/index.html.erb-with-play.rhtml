@@ -1,0 +1,110 @@
+<div class ="header">  
+  <div class="row">
+    <h1>Dashboard</h1>
+  </div>
+</div>
+<div class="row">
+ <%= render 'layouts/messages' %>
+</div>
+<div class="row">
+  <div class="small-9 small-centered columns">
+    <%= link_to "Dashboard", dashboard_path, class: "button", id: "dash" %>
+    <%= link_to "Deposit", dashboard_deposit_path, class: "button" %>
+    <%= link_to "Withdraw", dashboard_withdraw_path, class: "button" %>
+    <%= link_to "Transactions", dashboard_transactions_path, class: "button" %>
+  </div>
+</div>
+
+<div class = "row">
+  <div class="panel small-9 columns">    
+    <div class="small-6 columns">
+      <table>
+       <tr><th colspan="2">My Balances</th></tr>
+        <tr>
+          <td>Currency</td>
+          <td>Available</td>
+          <td>Restricted</td>
+        </tr>
+<% if current_user.role == "play" || current_user.role == "admin"%> 
+        <tr>
+          <td>PLAYBTC</td>
+          <td><b><%= @playbalance %></b></td>
+          <td><b>0</b></td>
+        </tr>
+<% end %>
+<% @cryptobalances.each do |b| %>
+        <tr>
+          <td><span><%= b.currency.upcase %></span></td>
+          <td><b><%= b.amount.to_f %> </b></td>
+          <td><b><%= b.restricted.to_f %></b></td>
+        </tr>
+<% end %>
+<% @fiatbalances.each do |b| %>
+        <tr>
+          <td><span><%= b.currency.upcase %></span></td>
+          <td><b><%= b.amount.to_f %> </b></td>
+          <td><b><%= b.restricted.to_f %></b></td>
+        </tr>
+<% end %>
+
+      </table>
+      <table>
+        <tr>
+          <th colspan="2">My Deposit Bonuses</th>
+          <th><a href="#" class="tiny button disabled">Claim Bonus</a></th>
+        </tr>
+        <tr>
+          <td>Currency</td>
+          <td>Target</td>
+          <td>Earned</td>
+        </tr>
+        <% if @playaccount == true %>
+          <td colspan=3><%= link_to "100% Deposit Bonus - Deposit Now!", dashboard_deposit_path, class:"button button-alert"%></td>
+        <% else %>
+<% @cbonusbalances.each do |b| %>
+        <tr>
+          <td><span><%= b.currency.upcase %></span></td>
+          <td><b><%= b.amount.to_f %> </b></td>
+          <td><b><%= b.restricted %></b></td>
+        </tr>
+<% end %>
+        
+
+
+        <% end %>
+      </table>
+    </div>
+    <div class="small-6 columns">
+    <% if current_user.sign_in_count > 2 %>
+      <h2>Welcome back!</h2>
+    <% else %>
+      <h2>Thanks for signing up!</h2>
+    <% end %>
+      <h5>Server Time: <%= @now %></h5>
+      <p>Let's get started.</p>
+      <ul class="button-group">
+        <li><%= link_to "Trade Binary Options", binary_orders_path, class:"button success" %></li>
+      </ul> 
+    </div>
+
+  </div>
+  <div class="small-3 columns">
+    <div class="panel callout">
+      <p>Help spread the word - 101 Rocks!</p>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://www.101.net" data-text="I'm loving 101 Digital Exchange for #bitcoin #binaryoptions" data-count="none">Tell the World!</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
+    <div class="panel alert">
+    <h4>Security Center</h4>
+    <p>Login Count: <%= current_user.sign_in_count %></p>
+    <p>Last Sign In at: <%= current_user.last_sign_in_at.strftime("%x %X") %><br/>
+       From: <a href="http://<%= current_user.last_sign_in_ip %>.ipaddress.com" target="_new"><%= current_user.last_sign_in_ip %></a>
+    </div>
+
+      <h3>Affiliate Stats</h3>
+      <p>Your User ID: <%= current_user.id %><br>
+      <% if !current_user.refid.nil? %>
+      You were referred by: <%= current_user.refid %></p>
+      <% end %>
+      <%= link_to "Affiliate Codes", dashboard_aff_codes_path %>
+</div>

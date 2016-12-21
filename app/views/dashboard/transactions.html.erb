@@ -1,0 +1,60 @@
+<div class ="header">  
+  <div class="row">
+    <h1>Transactions</h1>
+  </div>
+</div>
+<div class="row">
+ <%= render 'layouts/messages' %>
+</div>
+<div class="row">
+  <div class="small-9 small-centered columns">
+    <%= link_to "Dashboard", dashboard_path, class: "button" %>
+    <%= link_to "Deposit", dashboard_deposit_path, class: "button" %>
+    <%= link_to "Withdraw", dashboard_withdraw_path, class: "button" %>
+    <%= link_to "Transactions", dashboard_transactions_path, class: "button" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class = "panel">
+
+<%# TODO: AJAXify this transaction list %>
+<% if !current_user.txes.nil? %>
+
+  <table id="tx">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Type</th>
+        <th>ID</th>
+        <th>Amount</th>
+        <th>Currency</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+  <% @txes.each do |t| %>
+      <tr>
+        <td><%= t.created_at.strftime('%x %X') %></td>
+        <td><%= t.txtype %></td>
+        <% if t.txtype == "selloption" || "buyoption" %>
+              <%# TODO: Fix this shit! %>
+          <td><%= link_to t.txid, binary_orders_path(t.txid) %></td>
+        <% else %>
+          <td><%= t.txid %></td>
+        <% end %>
+        <td><%= t.amount %></td>
+        <td><%= t.currency %></td>
+        <td><%= t.status %></td>
+      </tr>
+  <% end %>
+
+    </tbody>
+  </table>
+
+<% else %>
+  <h4 align="center">You have no transactions yet. Why not <%= link_to 'Deposit', dashboard_deposit_path %> a bitcoin or two?</h4>
+<% end %>
+  </div>
+</div>

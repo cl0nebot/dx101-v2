@@ -1,0 +1,23 @@
+<div class="row">
+  
+  <%= form_for @wdreq, 
+    :url => url_for(:action => 'wdreq', :controller => 'dashboard'),
+    :method => 'post' do |f| %>
+    
+  <div class="large-12 columns">
+    <div class="row collapse">
+      <div class="small-10 columns">
+        <%= f.number_field  :amount, 
+                            class: 'text_field',
+                            step: 0.0001,
+                            in: 0..@maxwd,
+                            placeholder: "Withdrawal Amount in Bitcoins (max #{@maxwd} btc)"  %>
+      </div>
+      <div class="small-2 columns">
+        <%= f.button :submit, class: "button postfix"%>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  
+</div>

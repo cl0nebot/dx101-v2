@@ -1,0 +1,55 @@
+<% content_for :title do %>
+ <%= @page.title %>
+<% end %>
+<% content_for :description do %>
+ <%= @page.meta %>
+<% end %>
+
+</div>
+<div class ="header">  
+  <div class="row">
+    <h1>101: <%= @page.title %></h1>
+    <h2><%= @page.meta %></h2>
+  </div>
+</div>
+<div class="row">
+ <%= render 'layouts/messages' %>
+</div>
+  
+<div class="row">
+  <div class="small-12 large-9 columns">
+    <p>
+      <%= markdown @page.content %>
+    </p>
+    <% if can? :update, @page %>
+      <%= link_to 'Edit', edit_page_path(@page) %>
+    <% end %>
+  </div>
+  <div class="large-3 hide-for-small columns">
+    <p>&nbsp;</p>
+    <h3>Live Stats</h3>
+    <p>Today's Bonus Pool</p>
+    <p><%= @dbonus %> BTC </p>
+    <p>This Week's Bonus Pool</p>
+    <p><%= @wbonus %> BTC </p>
+    <p>This Month's Bonus Pool</p>
+    <p><%= @mbonus %> BTC </p>
+    <p>This Year's Bonus Pool</p>
+    <p><%= @ybonus %> BTC </p>
+  </div>
+
+  <div class="github-fork-ribbon-wrapper right-bottom">
+    <div class="github-fork-ribbon">
+      <a href= "#">Not Even Beta, Baby!</a>
+    </div>
+  </div>
+</div>
+<section>
+  <div class="row">
+    <div class="columns small-12 text-center f-28 strong">
+      <h4>Grow Your Bitcoins</h4>
+      <%= link_to "Get Started", new_user_registration_path, class: "button alert radius" %>
+    </div>
+  </div>
+</section>
+<%= render 'layouts/footer' %>

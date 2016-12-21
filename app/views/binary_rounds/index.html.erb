@@ -1,0 +1,51 @@
+<div class="header">
+  <div class="row">
+    <h1>Binary Round History</h1>
+  </div>
+</div>
+
+<div class = "row">
+<p><em>Note: Cancelled rounds are filtered from this view.</em></p>
+  <table id = "tx">
+    <thead>
+      <tr>
+        <th>Start Time</th>
+        <th>Round Type</th>
+        <th>Status</th>
+        
+        <th>Open</th>
+        <th>End Time</th>
+        <th>Close</th>
+        <th>ITM</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @binary_rounds.each do |binary_round| %>
+        <tr>
+          <td><%= binary_round.starttime %></td>
+
+        <% if binary_round.roundtype == "btcusd60" %>
+          <td>1 Minute</td>
+        <% elsif binary_round.roundtype == "btcusd5" %>
+          <td>5 Minute</td>
+        <% else %>
+          <td>1 Minute PLAY</td>
+        <% end %>
+
+          <td><%= binary_round.status %></td>
+          <td><%= binary_round.open %></td>
+          <td><%= binary_round.endtime %></td>
+          <td><%= binary_round.close %></td>
+          <td><%= binary_round.itm %></td>
+          <td><%= link_to 'Show', binary_round, class: "tiny button" %></td>
+          
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+</div>

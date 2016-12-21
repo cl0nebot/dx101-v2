@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  direction: 1
+  premium: 9.99
+  prembalance: 9.99
+  pool: 9.99
+  sysbonus: 9.99
+  depbonus: 9.99
+  affpay: 9.99
+  itm: false
+  itmpayout: 9.99
+  profit: 9.99
+
+two:
+  user_id: 
+  direction: 0
+  premium: 9.99
+  prembalance: 9.99
+  pool: 9.99
+  sysbonus: 9.99
+  depbonus: 9.99
+  affpay: 9.99
+  itm: false
+  itmpayout: 9.99
+  profit: 9.99

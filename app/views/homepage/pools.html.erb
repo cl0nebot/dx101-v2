@@ -1,0 +1,43 @@
+<% content_for :title do %>
+ Pool Details
+<% end %>
+<% content_for :description do %>
+<% end %>
+<div class ="header">  
+  <div class="row">
+    <h1>Pool Details</h1>
+  </div>
+</div>
+<div class="row">
+ <%= render 'layouts/messages' %>
+
+	<p>Pool ID: <%= @pool.id %></p>
+	<p>Pool Type: <%= @pool.bonustype %></p>
+	<p>Start Day: <%= @pool.startday.strftime('%Y-%m-%d') %></p>
+
+	<table>
+		<tr>
+			<th>Rank</th>
+			<th>User</th>
+			<th data-tooltip aria-haspopup="true" class="has-tip" title="P Score * A Score * R Score">PAR</th>
+			<th>Payout</th>
+			<th data-tooltip aria-haspopup="true" class="has-tip" title="Option Premiums, Percentile">P Score</th>
+			<th data-tooltip aria-haspopup="true" class="has-tip" title="Option Accuracy, Percentile">A Score</th>
+			<th data-tooltip aria-haspopup="true" class="has-tip" title="Round Participation, Percentile">R Score</th>
+			
+		</tr>
+		<% @pars.each_with_index do |par, index| %>
+		<tr>
+			<td><%= index+1 %></td>
+			<td><%= par.user.username[0,3]%>.......<%= par.user.username[-1]%></td>
+			<td><%= (par.p_percentile * par.a_percentile * par.r_percentile / 100).round(2) %></td>
+			<td><%= par.payout.to_f %></td>
+			<td><%= par.p_percentile.round(2) %></td>
+			<td><%= par.a_percentile.round(2) %></td>
+			<td><%= par.r_percentile.round(2) %></td>
+
+		</tr>
+		<% end %>
+	</table>
+
+</div>

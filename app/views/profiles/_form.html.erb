@@ -1,0 +1,21 @@
+<div class="row">
+ <%= render 'layouts/messages' %>
+</div>
+<div class="row">
+<p>&nbsp;</p>
+  <div class = "small-9 small-centered columns panel">
+
+  <h2>Edit Your Profile</h2>
+
+  <%= form_for(@profile) do |f| %>
+    
+    <label><%= f.label :pin %>
+    <%= f.number_field :pin, autofocus: true %></label>
+
+    
+    <div><%= f.submit "Update", class: "button"%></div>
+  <% end %>
+
+  <%= link_to "Back", :back %>
+  </div>
+</div>

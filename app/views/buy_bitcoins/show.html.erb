@@ -1,0 +1,35 @@
+<% content_for :title do %>
+ Buy Bitcoins in <%= @buy_bitcoin.name %>
+<% end %>
+
+<% content_for :description do %>
+ Buy Bitcoins in <%= @buy_bitcoin.name %> at 101 Digital Exchange 
+<% end %>
+
+<div class ="header">  
+  <div class="row">
+    <h1>Buy and Sell Bitcoins in <%= @buy_bitcoin.name %></h1>    
+  </div>
+</div>
+<div class="row">
+ <%= render 'layouts/messages' %>
+</div>
+
+<div class="row">
+	<p>
+  	<%= markdown @buy_bitcoin.content %>
+	</p>
+<% if can? :update, @buy_bitcoin %>
+  <%= link_to 'Edit', edit_buy_bitcoin_path(@buy_bitcoin) %>
+<% end %>
+
+</div>
+<section>
+  <div class="row">
+    <div class="columns small-12 text-center f-28 strong">
+      <h4>Buy and sell digital currency now.</h4>
+      <%= link_to "Get Started", new_user_registration_path, class: "button alert radius" %>
+    </div>
+  </div>
+</section>
+<%= render 'layouts/footer' %>

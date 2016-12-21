@@ -1,0 +1,131 @@
+<% content_for :title do %>
+ Binary Options Leaderboard
+<% end %>
+<% content_for :description do %>
+<% end %>
+<div class ="header">  
+  <div class="row">
+    <h1>Binary Option Leaderboard</h1>
+    <h2 class="show-for-medium-up">Premiums * Accuracy * Rounds</h2>
+  </div>
+</div>
+<div class="row">
+ <%= render 'layouts/messages' %>
+</div>
+
+<div class="row">
+  A portion of the premiums from each binary option round are reserved for Pool Bonuses.  Pool winners are picked automatically, based on Premiums, Accuracy, and the number of Rounds played.  For full details, please see 
+  <%= link_to 'How it Works', page_path("how-it-works") %>
+<p>&nbsp;</p>
+<% cache("leaders", expires_in: 1.hour) do %>
+  <div class="small-6 columns">
+    <h4>Daily Pool Bonuses</h4>
+    <p>Places Paid: 3</p>
+    <table >
+      <thead>
+        <tr>
+          <th>Start Day</th>
+          <th>Bonus Pool</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      	<tr>
+      		<td><%= Date.today %></td>
+          <td><%= @dbonus %></td>
+          <td>(Current Day)</td>
+      	</tr>	
+        <% @dailypools.each do |pool| %>
+        <tr>
+          <td><%= pool.startday.strftime('%Y-%m-%d') %></td>
+          <td><%= pool.paid_in %></td>
+          <td><%= link_to 'Details', pooldetail_path(pool) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="small-6 columns">
+    <h4>Weeky Pool Bonuses</h4>
+    <p>Places Paid: 5</p>
+    <table >
+      <thead>
+        <tr>
+          <th>Start Day</th>
+          <th>Bonus Pool</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= Date.today.beginning_of_week %></td>
+          <td><%= @wbonus %></td>
+          <td>(Current Week)</td>
+        </tr> 
+      <% @weeklypools.each do |pool| %>
+        <tr>
+          <td><%= pool.startday.strftime('%Y-%m-%d') %></td>
+          <td><%= pool.paid_in %></td>
+          <td><%= link_to 'Details', pooldetail_path(pool) %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  
+    <h4>Monthly Pool Bonuses</h4>
+    <p>Places Paid: 10</p>
+    <table >
+      <thead>
+        <tr>
+          <th>Start Day</th>
+          <th>Bonus Pool</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><%= Date.today.beginning_of_month %></td>
+          <td><%= @mbonus %></td>
+          <td>(Current Month)</td>
+        </tr> 
+        <% @monthlypools.each do |pool| %>
+        <tr>
+          <td><%= pool.startday.strftime('%Y-%m-%d') %></td>
+          <td><%= pool.paid_in %></td>
+          <td><%= link_to 'Details', pooldetail_path(pool) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  
+    <h4>Yearly Pool Bonuses</h4>
+    <p>Places Paid: 50</p>
+    <table >
+      <thead>
+        <tr>
+          <th>Start Day</th>
+          <th>Bonus Pool</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= Date.today.beginning_of_year %></td>
+          <td><%= @ybonus %></td>
+          <td>(Current Year)</td>
+        </tr> 
+      <% @yearlypools.each do |pool| %>
+        <tr>
+          <td><%= pool.startday.strftime('%Y-%m-%d') %></td>
+          <td><%= pool.paid_in %></td>
+          <td><%= link_to 'Details', pooldetail_path(pool) %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>  
+
+<% end %> 
+</div>

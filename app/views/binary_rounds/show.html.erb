@@ -1,0 +1,86 @@
+<div class="header">
+  <div class="row">
+    <h1>Binary Round Detail</h1>
+  </div>
+</div>
+
+
+<div class = "row">
+
+	<p id="notice"><%= notice %></p>
+
+<table>
+	<tr>
+	  <td>Round Number:</td>
+	  <td><%= @binary_round.id %></td>
+	</tr>
+
+	<tr>
+	  <td>Round Type:</td>
+	  <td><%= @roundtype %></td>
+	</tr>
+
+	<tr>
+	  <td>Active Orders:</td>
+	  <td><%= @ao %></td>
+	</tr>
+
+
+	<tr>
+	  <td>Scheduled Start Time:</td>
+	  <td><%= @binary_round.starttime %></td>
+	</tr>
+
+	<tr>
+	  <td>Scheduled End Time:</td>
+	  <td><%= @binary_round.endtime %></td>
+	</tr>
+
+
+	<tr>
+	  <td>Status:</td>
+	  <td><%= @binary_round.status %></td>
+	</tr>
+
+	<tr>
+	  <td>Bitcoin Value at Open:</td>
+	  <td><%= @binary_round.open %></td>
+	</tr>
+
+<% if @binary_round.status == "ended" %>
+	<tr>
+	  <td>Bitcoin Value at Close:</td>
+	  <td><%= @binary_round.close %></td>
+	</tr>
+
+	<tr>
+	  <td>Direction:</td>
+	  <td><%= @binary_round.itm %></td>
+	</tr>
+
+
+	<tr>
+	  <td>Sum of Call Premiums:</td>
+	  <td><%= @binary_round.callsum %></td>
+	</tr>
+
+	<tr>
+	  <td>Sum of Put Premiums:</td>
+	  <td><%= @binary_round.putsum %></td>
+	</tr>
+
+	<tr>
+	  <td>Option Pool (90%):</td>
+	  <td><%= @binary_round.pool_in %></td>
+	</tr>
+
+	<tr>
+	  <td>Pay Ratio:</td>
+	  <td><%= @binary_round.payratio %> : 1</td>
+	</tr>
+<% end %>
+</table>
+
+
+	<%= link_to 'Back', binary_rounds_path %>
+</div>

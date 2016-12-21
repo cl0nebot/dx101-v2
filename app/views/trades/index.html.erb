@@ -1,0 +1,34 @@
+<div class ="header">  
+  <div class="row">
+    <h1>Trades</h1>
+  </div>
+</div>
+<div class="row">
+<h1>WORK IN PROGRESS. ADMIN ONLY</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Amount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trades.each do |trade| %>
+      <tr>
+        <td><%= trade.user %></td>
+        <td><%= trade.amount %></td>
+        <td><%= link_to 'Show', trade %></td>
+        <td><%= link_to 'Edit', edit_trade_path(trade) %></td>
+        <td><%= link_to 'Destroy', trade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Trade', new_trade_path %>
+</div>

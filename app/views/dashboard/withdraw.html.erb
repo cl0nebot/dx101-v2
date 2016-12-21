@@ -1,0 +1,113 @@
+<div class ="header">  
+  <div class="row">
+    <h1>Withdraw</h1>
+  </div>
+</div>
+<div class="row">
+ <%= render 'layouts/messages' %>
+</div>
+<div class="row">
+  <div class="small-9 small-centered columns">
+    <%= link_to "Dashboard", dashboard_path, class: "button" %>
+    <%= link_to "Deposit", dashboard_deposit_path, class: "button" %>
+    <%= link_to "Withdraw", dashboard_withdraw_path, class: "button" %>
+    <%= link_to "Transactions", dashboard_transactions_path, class: "button" %>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class = "panel">
+    <ul class="tabs" data-tab role="tablist">
+      <li class="tab-title active" role="presentational" ><a href="#wdxbt" role="tab" tabindex="0" aria-selected="true" controls="wdxbt">Bitcoin / Crypto</a></li>
+       <li class="tab-title" role="presentational" ><a href="#wdwire" role="tab" tabindex="0" aria-selected="false" controls="wdwire">Dollars / Fiat</a></li>       
+    </ul>
+    <div class="tabs-content">
+      <section role="tabpanel" aria-hidden="false" class="content active" id="wdxbt">
+      <ul class="pricing-table">
+        <li class="title">Digital Currency Withdrawal</li>
+      </ul>
+  
+    <div class="small-4 columns">
+      <table>
+       <tr><th colspan="2">My Crypto Balances</th></tr>
+        <tr>
+          <td>Currency</td>
+          <td>Available</td>
+          <td>Restricted</td>
+        </tr>
+<% current_user.balances.crypto.each do |b| %>
+        <tr>
+          <td><%= b.currency %></span></td>
+          <td><b><%= b.amount %></b></td>
+          <td><b><%= b.restricted %></b></td>
+        </tr>
+<% end %>
+      </table>
+    </div>
+
+    <div class="small-8 columns">
+      <div class="row">
+      <% if @wdaddr.nil? %>
+        <div class="large-12 columns">
+        <h4>Before you can withdraw, you need to specify a withdrawal address.</h4>
+          <%= link_to "Create", new_dashboard_crypto_address_path, class: "button success" %> 
+        </div>
+      <% else %>
+          <div class="small-4 columns">
+            <p>Withdrawal Address:</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-8 columns">
+            <p><%= current_user.crypto_addresses.btc.last.address %><br/>
+            <em>(contact support to change this address)</em></p>
+          </div>
+        </div>
+        <% if @maxwd.zero? %>
+          <div class="alert-box">
+            Insufficient Balance for Withdrawal
+          </div>
+        <% else %>
+          <div class="row">
+            <div class="small-4 columns">
+              <p>Withdrawal Fee:</p>
+            </div>
+            <div class="small-8 columns">
+              <p><%= @wdfee %>btc</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="small-4 columns">
+              <p>Your Maximum Withdrawal:</p>
+            </div>
+            <div class="small-8 columns">
+              <p><%= @maxwd %> btc</p>
+            </div>
+          </div>
+<%= render 'wdform' %>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
+      <section role="tabpanel" aria-hidden="false" class="content" id="wdwire">
+        <p>Wire Transfers and other fiat currency withdrawal options are coming soon. Stay tuned!</p>
+       <table>
+       <tr><th colspan="2">My Fiat Balances</th></tr>
+        <tr>
+          <td>Currency</td>
+          <td>Available</td>
+          <td>Restricted</td>
+        </tr>
+<% current_user.balances.fiat.each do |b| %>
+        <tr>
+          <td><%= b.currency %></span></td>
+          <td><b><%= b.amount.to_f %></b></td>
+          <td><b><%= b.restricted.to_f %></b></td>
+        </tr>
+<% end %>
+        </table>
+      </section>
+    </div>
+  </div>
+</div>

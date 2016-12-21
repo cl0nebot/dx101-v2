@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: 1
+  open: 9.99
+  close: 9.99
+  itm: 1
+
+two:
+  status: 1
+  open: 9.99
+  close: 9.99
+  itm: 1

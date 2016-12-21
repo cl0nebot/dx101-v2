@@ -1,0 +1,71 @@
+<div class = "row">
+	<h1>Admin Report</h1>
+	<div class = "small-6 columns">
+		<h3>System User</h3>
+		BTC: <%= @housebalbtc.amount %> <br/>
+		PLAY: <%= @housebalplaybtc.amount %>
+		
+		<h3>Seed Users (Combined)</h3>
+
+		BTC: <%= @seedbtc %> <br/>
+		PLAY: <%= @seedplay %>
+		<h1>Bonus Pools</h1>
+			<p>Today: <%= @dbonus %></p>
+			<p>This Week: <%= @wbonus %></p>
+			<p>This Month: <%= @mbonus %></p>
+			<p>This Year: <%= @ybonus %></p>
+
+			<p>Bonuses Collected: <%= @paid_in %></p>
+			<p>Bonuses Paid: <%= @paid_out %></p>
+	</div>
+	<div class = "small-6 columns">
+	<h3>Active Binary Rounds</h3>
+	<table>
+		<tr>
+			<td></td>
+			<th colspan="2">1 Minute Round</td>
+			<th colspan="2">5 Minute Round</td>
+		</tr>
+		<tr>
+			<td></td>
+			<th>Round #</th>
+			<th>Premiums</th>
+			<th>Round #</th>
+			<th>Premiums</th>
+		</tr>
+		<tr>
+			<td>Open Round:</td>
+			<td><%=@open1min%></td>
+			<td><%= @o1rnd.to_f.round(8) %></td>
+			<td><%=@open5min%></td>
+			<td><%= @o5rnd.to_f.round(8) %></td>
+		</tr>
+		<tr>
+			<td>Started Round:</td>
+			<td><%=@started1min%></td>
+			<td><%= @s1rnd.to_f.round(8) %></td>
+			<td><%=@started5min%></td>
+			<td><%= @s5rnd.to_f.round(8) %></td>
+		</tr>
+
+		<tr>
+			<td colspan="2">Total:</td>
+			<td><%= @inplay1.to_f.round(8) %></td>
+			<td></td>
+			<td><%= @inplay5.to_f.round(8) %></td>
+		</tr>
+	</table>
+	<h3>We Balanced?</h3>
+	<p><%= @onering.round(8) %><br/>
+	(This number should be zero)</p>
+	<p>Hot Wallet Balance: <%= @hotbal %></p>
+
+		<h3>User Counts</h3>
+		<p>Regular Users: <%= @usercount %> <br/>
+		Play Users: <%= @playcount %> </p>
+		<p>Disabled Users: <%= @disabledcount %> <br/>
+		Admins Users: <%= @admincount %> <br/>
+		Seed Users <%= @seedcount %> <br/>
+	</div>
+	
+</div>

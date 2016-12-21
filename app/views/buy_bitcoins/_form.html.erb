@@ -1,0 +1,27 @@
+<%= form_for(@buy_bitcoin) do |f| %>
+  <% if @buy_bitcoin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@buy_bitcoin.errors.count, "error") %> prohibited this buy_bitcoin from being saved:</h2>
+
+      <ul>
+      <% @buy_bitcoin.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <label><%= f.label "Country" %>
+    <%= f.text_field :name %>
+    </label>
+  </div>
+  <div class="field">
+    <label><%= f.label :content %>
+    <%= f.text_area :content, rows: 20 %>
+    </label>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "button", label: "Go!" %>
+  </div>
+<% end %>

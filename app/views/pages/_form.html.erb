@@ -1,0 +1,35 @@
+<%= form_for(@page) do |f| %>
+  <% if @page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+      <ul>
+      <% @page.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="large-6 columns">
+      <label><%= f.label :title %>
+        <%= f.text_field :title %>
+      </label>      
+    </div>
+    <div class="large-6 columns">
+      <label><%= f.label :meta %>
+        <%= f.text_field :meta %>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field">
+      <label><%= f.label :content %>
+        <%= f.text_area :content, rows: 20 %>
+      </label>
+    </div>
+    <div class="actions">
+      <%= f.submit class: "button" %>
+    </div>
+  </div>
+<% end %>

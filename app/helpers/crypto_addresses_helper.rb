@@ -1,0 +1,2 @@
+module CryptoAddressesHelper
+end

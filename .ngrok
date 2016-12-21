@@ -1,0 +1,6 @@
+inspect_addr: disabled
+tunnels:
+  dev:
+    proto:
+      http: "3000"
+      https: "3000"

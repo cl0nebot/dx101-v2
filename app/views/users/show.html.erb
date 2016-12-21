@@ -1,0 +1,34 @@
+<div class="row">
+ <%= render 'layouts/messages' %>
+</div>
+<div class = "row">
+	<div class="small-9 columns">
+		<table>
+			<tr><th>P2P Binary Options</th></tr>
+			<tr>
+				<td><div class="panel"><a href="#" class="button success radius">CALL</a></div></td>
+				<td><div id="lasthr" style="width:100px; height:80px"></div></td>
+			</tr>
+			<tr>
+				<td> 
+				<div class="spinner">
+      				<div class="rect1"></div>
+      				<div class="rect2"></div>
+      				<div class="rect3"></div>
+      				<div class="rect4"></div>
+      				<div class="rect5"></div>
+    			</div>
+				</td>
+				<td><div id="lastday" style="width:100px; height:80px"></div></td>
+			</tr>
+			<tr colspan="2">
+				<td><div class="panel"><a href="#" class="button alert radius">PUT</a></div></td>
+				<td><div id="lastwk" style="width:100px; height:80px"></div></td>
+			</tr>
+			<td><div class="panel"><h4>SOME NUMBER</h4></div></td>
+		</table>
+	</div>
+<div id="lasthr" style="width:100px; height:80px"></div>
+
+	<%= render "sidebar" %>	
+</div>

@@ -1,0 +1,172 @@
+<div class ="header">  
+  <div class="row">
+    <h1>My Affiliate Codes</h1>
+  </div>
+</div>
+<div class="row">
+ <%= render 'layouts/messages' %>
+</div>
+
+<div class="row">
+	<div class="12-small columns">
+	It's easy to make additional money by referring your friends, family, or website visitors to 101.  
+	Simply activate a unique referral code and add it to your webpage.
+
+<% if @myaffcodes.count == 0 %>
+		<p>You have no affiliate ids. <%= link_to "Create one!", new_dashboard_aff_code_path %></p>
+<% else %>
+
+<h4>My Affiliate Code:</h4>
+		<table>
+			<tr>
+				<th>Code</th>
+				<th>Link Code</th>
+				<th></th>
+		</tr>
+
+		<% @myaffcodes.each do |ac| %>
+	  <tr>
+	  	<td><%= ac.code %></td>
+	  	<td>www.101.net?ref=<%=ac.code%></td>
+	  	<td>Reports Coming Soon</td>
+  	</tr>
+	  <% end %>
+
+	  </table>
+
+	  <p>If you need to segment your traffic, you can -> <%= link_to "Create another code", new_dashboard_aff_code_path %></p>
+
+<% end %>
+		<hr>
+		<h4>Highlights of the 101DX Affiliate Program:</h4>
+		<ul>
+		<li><b>instant payouts</b> - you are paid after the completion of every binary round and are free to withdraw your commissions at any time.</li>
+		<li><b>25% revenue share</b> - base. Earn more than 5 BTC per month and we can increase your commission</li>
+		</ul>
+	</div>
+</div>
+
+<div class="row">
+	<div class="12-small columns">
+
+		<h4>Affiliate Agreement</h4>
+		<p>By referring clients to 101 Digital Exchange, you agree to the following terms:</p>
+<textarea rows="25">
+PLEASE READ THE ENTIRE AGREEMENT.
+
+YOU MAY PRINT THIS PAGE FOR YOUR RECORDS.
+
+THIS IS A LEGAL AGREEMENT BETWEEN YOU AND 101 GROUP LTD (DBA 101.NET)
+
+BY REFERRING CLIENTS TO 101 DIGITAL EXCHANGE YOU ARE AGREEING THAT YOU HAVE READ AND UNDERSTAND THE TERMS AND CONDITIONS OF THIS AGREEMENT AND THAT YOU AGREE TO BE LEGALLY RESPONSIBLE FOR EACH AND EVERY TERM AND CONDITION
+
+
+1. Overview
+
+This Agreement contains the complete terms and conditions that apply to you becoming an affiliate in 101.NET’s Affiliate Program. The purpose of this Agreement is to allow HTML linking between your web site and the 101.NET web site. Please note that throughout this Agreement, “we,” “us,” and “our” refer to 101.NET, and “you,” “your,” and “yours” refer to the affiliate.
+
+ 
+
+2. Affiliate Obligations
+
+2.1. To begin the enrollment process, you will complete and submit the online application at the 101.NET server. The fact that we auto-approve applications does not imply that we may not re-evaluate your application at a later time. We may reject your application at our sole discretion. We may cancel your application if we determine that your site is unsuitable for our Program, including if it:
+
+2.1.1. Promotes sexually explicit materials
+2.1.2. Promotes violence
+2.1.3. Promotes discrimination based on race, sex, religion, nationality, disability, sexual orientation, or age
+2.1.4. Promotes illegal activities
+2.1.5. Incorporates any materials which infringe or assist others to infringe on any copyright, trademark or other intellectual property rights or to violate the law
+2.1.6. Includes “101 Digital Exchange” or variations or misspellings thereof in its domain name
+2.1.7. Is otherwise in any way unlawful, harmful, threatening, defamatory, obscene, harassing, or racially, ethnically or otherwise objectionable to us in our sole discretion.
+2.1.8. Contains software downloads that potentially enable diversions of commission from other affiliates in our program.
+2.1.9. You may not create or design your website or any other website that you operate, explicitly or implied in a manner which resembles our website nor design your website in a manner which leads customers to believe you are 101.NET or any other affiliated business.
+
+2.2. As a member of 101.NET’s Affiliate Program, you will have access to Affiliate Account Manager. Here you will be able to review our Program’s details and previously-published affiliate newsletters, download HTML code (that provides for links to web pages within the 101.NET web site) and banner creatives, browse and get tracking codes for our coupons and deals. In order for us to accurately keep track of all guest visits from your site to ours, you must use the HTML code that we provide for each banner, text link, or other affiliate link we provide you with.
+
+2.3. 101.NET reserves the right, at any time, to review your placement and approve the use of Your Links and require that you change the placement or use to comply with the guidelines provided to you.
+
+2.4. The maintenance and the updating of your site will be your responsibility. We may monitor your site as we feel necessary to make sure that it is up-to-date and to notify you of any changes that we feel should enhance your performance.
+
+2.5. It is entirely your responsibility to follow all applicable intellectual property and other laws that pertain to your site. You must have express permission to use any person’s copyrighted material, whether it be a writing, an image, or any other copyrightable work. We will not be responsible (and you will be solely responsible) if you use another person’s copyrighted material or other intellectual property in violation of the law or any third party rights.
+
+3. 101.NET Rights and Obligations
+
+3.1. We have the right to monitor your site at any time to determine if you are following the terms and conditions of this Agreement. We may notify you of any changes to your site that we feel should be made, or to make sure that your links to our web site are appropriate and to notify further you of any changes that we feel should be made. If you do not make the changes to your site that we feel are necessary, we reserve the right to terminate your participation in the 101.NET Affiliate Program.
+
+3.2. 101.NET reserves the right to terminate this Agreement and your participation in the 101.NET Affiliate Program immediately and without notice to you should you commit fraud in your use of the 101.NET Affiliate Program or should you abuse this program in any way. If such fraud or abuse is detected, 101.NET shall not be liable to you for any commissions for such fraudulent sales.
+
+3.3. This Agreement will begin upon our acceptance of your Affiliate application, and will continue unless terminated hereunder.
+
+4. Termination
+
+Either you or we may end this Agreement AT ANY TIME, with or without cause, by giving the other party written notice. Written notice can be in the form of mail, email or fax. In addition, this Agreement will terminate immediately upon any breach of this Agreement by you.
+
+5. Modification
+
+We may modify any of the terms and conditions in this Agreement at any time at our sole discretion. In such event, you will be notified by email. Modifications may include, but are not limited to, changes in the payment procedures and 101.NET’s Affiliate Program rules. If any modification is unacceptable to you, your only option is to end this Agreement. Your continued participation in 101.NET’s Affiliate Program following the posting of the change notice or new Agreement on our site will indicate your agreement to the changes.
+
+6. Payment
+
+101.NET uses its internal software to track and pay affiliates.  You agree that this is acceptable. Payment for all affiliate earnings shall be in Bitcoin currency, and shall be paid into your 101.NET account upon accrual. 
+
+7. Access to Affiliate Account Interface
+
+You will use this area of the 101.NET website to view all reports related to your affiliate earnings.
+
+8. Promotion Restrictions
+
+8.1. You are free to promote your own web sites, but naturally any promotion that mentions 101.NET could be perceived by the public or the press as a joint effort. You should know that certain forms of advertising are always prohibited by 101.NET. For example, advertising commonly referred to as “spamming” is unacceptable to us and could cause damage to our name. Other generally prohibited forms of advertising include the use of unsolicited commercial email (UCE), postings to non-commercial newsgroups and cross-posting to multiple newsgroups at once. In addition, you may not advertise in any way that effectively conceals or misrepresents your identity, your domain name, or your return email address. You may use mailings to customers to promote 101.NET so long as the recipient is already a customer or subscriber of your services or web site, and recipients have the option to remove themselves from future mailings. Also, you may post to newsgroups to promote 101.NET so long as the news group specifically welcomes commercial messages. At all times, you must clearly represent yourself and your web sites as independent from 101.NET. If it comes to our attention that you are spamming, we will consider that cause for immediate termination of this Agreement and your participation in the 101.NET Affiliate Program. Any pending balances owed to you will not be paid if your account is terminated due to such unacceptable advertising or solicitation.
+
+8.2. Affiliates that among other keywords or exclusively bid in their Pay-Per-Click campaigns on keywords such as 101.NET, WWW.101.NET, and/or any misspellings or similar alterations of these – be it separately or in combination with other keywords – and do not direct the traffic from such campaigns to their own website prior to re-directing it to ours, will be considered trademark violators, and will be banned from 101.NET's Affiliate Program. We will do everything possible to contact the affiliate prior to the ban. However, we reserve the right to expel any trademark violator from our affiliate program without prior notice, and on the first occurrence of such PPC bidding behavior.
+
+8.3. Affiliate shall not transmit any so-called “interstitials,” “Parasiteware™,” “Parasitic Marketing,” “Shopping Assistance Application,” “Toolbar Installations and/or Add-ons,” “Shopping Wallets” or “deceptive pop-ups and/or pop-unders” to consumers from the time the consumer clicks on a qualifying link until such time as the consumer has fully exited 101.NET’s site (i.e., no page from our site or any 101.NET’s content or branding is visible on the end-user’s screen). As used herein a. “Parasiteware™” and “Parasitic Marketing” shall mean an application that (a) through accidental or direct intent causes the overwriting of affiliate and non affiliate commission tracking cookies through any other means than a customer initiated click on a qualifying link on a web page or email; (b) intercepts searches to redirect traffic through an installed software, thereby causing, pop ups, commission tracking cookies to be put in place or other commission tracking cookies to be overwritten where a user would under normal circumstances have arrived at the same destination through the results given by the search (search engines being, but not limited to, Google, MSN, Yahoo, Overture, AltaVista, Hotbot and similar search or directory engines); (c) set commission tracking cookies through loading of Bullies2Buddies site in IFrames, hidden links and automatic pop ups that open 101.NET’s site; (d) targets text on web sites, other than those web sites 100% owned by the application owner, for the purpose of contextual marketing; (e) removes, replaces or blocks the visibility of Affiliate banners with any other banners, other than those that are on web sites 100% owned by the owner of the application.
+
+9. Grant of Licenses
+
+9.1. We grant to you a non-exclusive, non-transferable, revocable right to (i) access our site through HTML links solely in accordance with the terms of this Agreement and (ii) solely in connection with such links, to use our logos, trade names, trademarks, and similar identifying material (collectively, the “Licensed Materials”) that we provide to you or authorize for such purpose. You are only entitled to use the Licensed Materials to the extent that you are a member in good standing of 101.NET’s Affiliate Program. You agree that all uses of the Licensed Materials will be on behalf of 101.NET and the good will associated therewith will inure to the sole benefit of 101.NET.
+
+9.2. Each party agrees not to use the other’s proprietary materials in any manner that is disparaging, misleading, obscene or that otherwise portrays the party in a negative light. Each party reserves all of its respective rights in the proprietary materials covered by this license. Other than the license granted in this Agreement, each party retains all right, title, and interest to its respective rights and no right, title, or interest is transferred to the other.
+
+10. Disclaimer
+
+101.NET MAKES NO EXPRESS OR IMPLIED REPRESENTATIONS OR WARRANTIES REGARDING 101.NET SERVICE AND WEB SITE OR THE PRODUCTS OR SERVICES PROVIDED THEREIN, ANY IMPLIED WARRANTIES OF 101.NET's ABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT ARE EXPRESSLY DISCLAIMED AND EXCLUDED. IN ADDITION, WE MAKE NO REPRESENTATION THAT THE OPERATION OF OUR SITE WILL BE UNINTERRUPTED OR ERROR FREE, AND WE WILL NOT BE LIABLE FOR THE CONSEQUENCES OF ANY INTERRUPTIONS OR ERRORS.
+
+11. Representations and Warranties
+
+You represent and warrant that:
+
+11.1. This Agreement has been duly and validly executed and delivered by you and constitutes your legal, valid, and binding obligation, enforceable against you in accordance with its terms;
+
+11.2. You have the full right, power, and authority to enter into and be bound by the terms and conditions of this Agreement and to perform your obligations under this Agreement, without the approval or consent of any other party;
+
+11.3. You have sufficient right, title, and interest in and to the rights granted to us in this Agreement.
+
+12. Limitations of Liability
+
+WE WILL NOT BE LIABLE TO YOU WITH RESPECT TO ANY SUBJECT MATTER OF THIS AGREEMENT UNDER ANY CONTRACT, NEGLIGENCE, TORT, STRICT LIABILITY OR OTHER LEGAL OR EQUITABLE THEORY FOR ANY INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL OR EXEMPLARY DAMAGES (INCLUDING, WITHOUT LIMITATION, LOSS OF REVENUE OR GOODWILL OR ANTICIPATED PROFITS OR LOST BUSINESS), EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. FURTHER, NOTWITHSTANDING ANYTHING TO THE CONTRARY CONTAINED IN THIS AGREEMENT, IN NO EVENT SHALL 101.NET’S CUMULATIVE LIABILITY TO YOU ARISING OUT OF OR RELATED TO THIS AGREEMENT, WHETHER BASED IN CONTRACT, NEGLIGENCE, STRICT LIABILITY, TORT OR OTHER LEGAL OR EQUITABLE THEORY, EXCEED THE TOTAL COMMISSION FEES PAID TO YOU UNDER THIS AGREEMENT.
+
+13. Indemnification
+
+You hereby agree to indemnify and hold harmless 101.NET, and its subsidiaries and affiliates, and their directors, officers, employees, agents, shareholders, partners, members, and other owners, against any and all claims, actions, demands, liabilities, losses, damages, judgments, settlements, costs, and expenses (including reasonable attorneys’ fees) (any or all of the foregoing hereinafter referred to as “Losses”) insofar as such Losses (or actions in respect thereof) arise out of or are based on (i) any claim that our use of the affiliate trademarks infringes on any trademark, trade name, service mark, copyright, license, intellectual property, or other proprietary right of any third party, (ii) any misrepresentation of a representation or warranty or breach of a covenant and agreement made by you herein, or (iii) any claim related to your site, including, without limitation, content therein not attributable to us.
+
+14. Confidentiality
+
+All confidential information, including, but not limited to, any business, technical, financial, and customer information, disclosed by one party to the other during negotiation or the effective term of this Agreement which is marked “Confidential,” will remain the sole property of the disclosing party, and each party will keep in confidence and not use or disclose such proprietary information of the other party without express written permission of the disclosing party.
+
+15. Miscellaneous
+
+15.1. You agree that you are an independent contractor, and nothing in this Agreement will create any partnership, joint venture, agency, franchise, sales representative, or employment relationship between you and 101.NET. You will have no authority to make or accept any offers or representations on our behalf. You will not make any statement, whether on Your Site or any other of Your Site or otherwise, that reasonably would contradict anything in this Section.
+
+15.2. Neither party may assign its rights or obligations under this Agreement to any party, except to a party who obtains all or substantially all of the business or assets of a third party.
+
+15.3. This Agreement shall be governed by and interpreted in accordance with the laws of the State of New York without regard to the conflicts of laws and principles thereof.
+
+15.4. You may not amend or waive any provision of this Agreement unless in writing and signed by both parties.
+
+15.5. This Agreement represents the entire agreement between us and you, and shall supersede all prior agreements and communications of the parties, oral or written.
+
+15.6. The headings and titles contained in this Agreement are included for convenience only, and shall not limit or otherwise affect the terms of this Agreement.
+
+15.7. If any provision of this Agreement is held to be invalid or unenforceable, that provision shall be eliminated or limited to the minimum extent necessary such that the intent of the parties is effectuated, and the remainder of this agreement shall have full force and effect.</textarea>
+	</div>
+</div>

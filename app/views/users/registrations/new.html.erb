@@ -1,0 +1,45 @@
+<div class="row">
+ <%= render 'layouts/messages' %>
+</div>
+<div class="row">
+<p>&nbsp;</p>
+  <div class = "small-9 small-centered columns panel">
+
+<h2>Sign up</h2>
+
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <% if !resource.errors.messages.empty? %>
+    <div data-alert class="alert-box alert"><%= devise_error_messages! %></div>
+  <% end %>
+
+  <label><%= f.label :username %>
+    <%= f.text_field :username, autofocus: true %>
+  </label>
+
+  <label><%= f.label :email %>
+    <%= f.email_field :email %>
+  </label>
+
+  <label><%= f.label :password %>
+    <%= f.password_field :password, autocomplete: "off" %>
+  </label>
+
+  <label><%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </label>
+
+  <%= f.hidden_field :refid, value: @refid %>
+  
+  <div><%= f.submit "Sign up", class: "button" %></div>
+<% end %>
+
+
+    <%= render "devise/shared/links" %>
+    
+  </div>
+  <% unless @refid.nil? %>
+    Referred by: <%= @refid %>
+  <% end %>
+</div>

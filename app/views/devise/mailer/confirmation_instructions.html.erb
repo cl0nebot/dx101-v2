@@ -1,0 +1,44 @@
+<%= render 'devise/mailer/ink_header' %>
+
+
+          <table class="container">
+            <tr>
+              <td>
+
+                <table class="row">
+                  <tr>
+                    <td class="wrapper last">
+
+                      <table class="twelve columns">
+                        <tr>
+                          <td>
+                            <h1>Thanks for Signing Up!</h1>
+                						<p class="lead">You're just seconds away from the fastest way to grow your bitcoins.</p>
+                						<p>&nbsp;</p>
+                          </td>
+                          <td class="expander"></td>
+                        </tr>
+                      </table>
+
+                    </td>
+                  </tr>
+                </table>
+
+                <table class="row callout">
+                  <tr>
+                    <td class="wrapper last">
+
+                      <table class="twelve columns">
+                        <tr>
+                          <td class="panel">
+                            <p>Your confirmation key is <%= @token %>. Click here to <%= link_to 'Activate your account', confirmation_url(@resource, confirmation_token: @token) %></p>
+                          </td>
+                          <td class="expander"></td>
+                        </tr>
+                      </table>
+
+                    </td>
+                  </tr>
+                </table>
+
+<%= render 'devise/mailer/ink_footer' %>

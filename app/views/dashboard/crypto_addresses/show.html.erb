@@ -1,0 +1,33 @@
+
+<div class="row">
+ <%= render 'layouts/messages' %>
+</div>
+<div class="row">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @crypto_address.address %>
+</p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @crypto_address.currency %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @crypto_address.active %>
+</p>
+
+<p>
+  <strong>Address Type:</strong>
+  <%= @crypto_address.addrtype %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @crypto_address.user %>
+</p>
+
+</div>

@@ -1,0 +1,49 @@
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+
+  <% if current_user && current_user.admin? %>
+    <li class="name">
+      <h1><a href="/dashboard"><%= image_tag "101dx_icon_white.png", size: "25x25" %> &nbsp; 101 ADMIN</a></h1>
+    </li>
+  <% elsif current_user %>
+      <li class="name">
+        <h1><a href="/dashboard"><%= image_tag "101dx_icon_white.png", size: "25x25" %> &nbsp; 101 Digital Exchange</a></h1>
+      </li>
+  <% else %>
+      <li class="name">
+        <h1><a href="/"><%= image_tag "101dx_icon_white.png", size: "25x25" %> &nbsp; 101 Digital Exchange &nbsp; BTC/USD: &nbsp;<%= @btcusd %></a></h1>
+      </li>
+  <% end %>
+
+    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+  </ul>
+  <div class="top-bar-section">
+  <ul class="right">
+    <% if current_user && current_user.admin? %>
+      <li><%= link_to 'Trading', trades_path, class: "secondary button" %> </li>
+      <li>&nbsp;</li>
+      <li><%= link_to 'Lending', loans_path, class: "secondary button" %> </li>
+      <li>&nbsp;</li>
+    <% end %>   
+    <% if user_signed_in? %>
+      <li><%= link_to 'Options', binary_orders_path, class: "success button" %></li>
+      <li class = "has-dropdown"><%= link_to 'Dashboard', dashboard_path %></a>
+      <ul class="dropdown">
+        <li><%= link_to 'Edit account', edit_user_registration_path %></li>
+        <li><%= link_to 'Profile', profiles_path %></li>
+        <% if current_user && current_user.admin? %>
+        <li><%= link_to 'Reports', dashboard_reports_path %></li>
+        <% end %>
+        <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
+      </ul>
+    <% else %>
+      <li><%= link_to 'Why 101?', page_path("our-values") %></li>
+      <li><%= link_to 'How it Works', page_path("how-it-works") %></li>
+      <li><%= link_to 'Leaderboard', leaderboard_path %></li>
+      <li><%= link_to 'Sign in', new_user_session_path %></li>
+      <li><%= link_to 'Sign up', new_user_registration_path, class: "alert button" %></li>
+    <% end %>
+    </ul>
+
+  </div>
+</nav>

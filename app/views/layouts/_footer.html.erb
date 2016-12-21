@@ -1,0 +1,51 @@
+<footer>
+  <div class="row">
+    <div class="columns small-12 large-6">
+      <div class="row">
+        <div class="columns small-4">
+          <%= image_tag "101dx_icon_white.png", class: "mt-15" %>
+        </div>
+        <div class="columns small-8">
+        <h3>101 Digital Exchange</h3>
+
+        <p class="f-14">Copyright © 2014 101 Group Ltd.<br>All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+    <div class="large-6 columns">
+    <div class="row">
+      <div class="columns large-3">
+        <h3>Main</h3>
+        <%= link_to 'Sign in', new_user_session_path %><br/>
+        <%= link_to 'Sign up', new_user_registration_path %><br/>
+        <%= link_to 'How it Works', page_path("how-it-works") %><br/>
+        <%= link_to "Our Values", page_path("our-values") %><br/>
+        
+        <%= link_to 'Leaderboard', leaderboard_path %>
+        
+      </div>
+      <div class="columns large-3">
+        <h3>More</h3>
+        <a href="http://support.101.net/News/List">News</a><br>
+        <a href="http://support.101.net/Knowledgebase/List">Knowledgebase</a><br>
+        <a href="http://support.101.net/Tickets/Submit" target="_top">Support</a><br>
+        <hr>
+        <%= link_to "Sell Bitcoins", page_path("sell-bitcoins") %><br/>
+        <%= link_to "Affiliates", page_path("recommend-us") %><br/>        
+      </div>
+      <div class="columns large-6">
+        <h3>Let's Get Social</h3>
+
+        <a href="https://www.facebook.com/101digital" target="_blank" ><i class="fa fa-facebook-square"></i></a>
+        <a href="https://twitter.com/101dotnet" target="_blank" class="f-30 mr-3"><i class="fa fa-twitter-square"></i></a>
+        <a href="http://www.linkedin.com/company/101-digital-exchange" target="_blank" class="f-30 mr-3"><i class="fa fa-linkedin-square"></i></a>
+        <a href="https://plus.google.com/113605247805078724202" target="_blank" class="f-30 mr-3"><i class="fa fa-google-plus-square"></i></a>
+        <a href="http://www.youtube.com/101digitalexchange" target="_blank" class="f-30 mr-3"><i class="fa fa-youtube-square"></i></a>
+        <hr>
+        <%= link_to "Privacy", page_path("privacy") %> / 
+        <%= link_to "Terms and Conditions", page_path("terms") %>
+      </div>
+    </div>
+  </div>
+  </div>
+</footer>

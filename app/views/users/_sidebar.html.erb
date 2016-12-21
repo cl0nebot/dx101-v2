@@ -1,0 +1,43 @@
+<div class="small-3 columns">
+	<ul class="sidebar">
+		<table>
+			<tr><th colspan="2">My Balances</th></tr>
+			<tr>
+				<td>Currency</td>
+				<td>Available</td>
+				<td>Restricted</td>
+			</tr>
+			<tr>
+				<td><span data-tooltip class="has-tip" title="1 Million bits = 1 Bitcoin">bits</span></td>
+				<td><b>0</b></td>
+				<td><b>5792</b></td>
+			</tr>
+		</table>
+		<ul class="button-group">
+  		<li><a href="#" class="tiny button success">Deposit</a></li>
+  		<li><a href="#" class="tiny button success disabled">Withdraw</a></li>
+		</ul>	
+		<table>
+			<tr>
+			  <th colspan="2">My Deposit Bonuses</th>
+			<tr>
+				<td>Currency</td>
+				<td>Target</td>
+				<td>Released</td>
+			</tr>
+			<tr>
+				<td><span data-tooltip class="has-tip" title="1 Million bits = 1 Bitcoin">bits</span></td>
+				<td>1,000,000</b></td>
+				<td><b>0</b></td>
+			</tr>
+		</table>
+		<ul class="button-group" align="center">
+  		<li><a href="#" class="tiny button success disabled">Claim Bonus</a></li>
+		</ul>	
+
+		<h3>Affiliate Stats</h3>
+		<p>Your User ID: <%= current_user.id %></p>
+		<p>You were referred by: <%= current_user.refid %></p>
+		
+	</ul>
+</div>
